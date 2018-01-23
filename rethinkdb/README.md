@@ -7,25 +7,25 @@ docker pull zemuldo/rethinkdb:db1
 ```
 Start Cluster Containers. We will run four of them. on ports
 
-8081,29016,28016 --db1
+8080,29015,28015 --db1
 8082,29017,28017 --db2
 8083,29018,28018 --db3
 8084,29019,28019 --db4
 
 ```
-docker run -d -p 8081:8080 -p 29016:29015 -p 28016:28015 370c3d2c0222
+docker run -d -p 8080:8080 -p 29015:29015 -p 28015:28015 370c3d2c0222
 ```
 
 ```
-docker run -d -p 8082:8080 -p 29017:29015 -p 28017:28015 370c3d2c0222
+docker run -d -p 8081:8080 -p 29017:29015 -p 28017:28015 370c3d2c0222
 ```
 
 ```
-docker run -d -p 8083:8080 -p 29018:29015 -p 28018:28015 370c3d2c0222
+docker run -d -p 8082:8080 -p 29018:29015 -p 28018:28015 370c3d2c0222
 ```
 
 ```
-docker run -d -p 8084:8080 -p 29019:29015 -p 28019:28015 370c3d2c0222
+docker run -d -p 8083:8080 -p 29019:29015 -p 28019:28015 370c3d2c0222
 ```
 
 Find the container ID addresses of each container.
@@ -48,6 +48,8 @@ Join the instances to the cluster Choose the primary one.
 docker exec -d 1275eb1b5404 rethinkdb --bind all --join address:29015
 ```
 Useful commands:
+
+docker images -a
 
 docker start | stop | restart container
 
